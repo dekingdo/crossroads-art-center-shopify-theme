@@ -1,0 +1,36 @@
+{% include 'breadcrumbs' %}
+<div class="w-full max-w-lg px-4 my-8 mx-auto">
+  <h1 class="text-center">Customer Log in</h1>
+  
+  {% form 'customer_login' %}
+  {{ form.errors | default_errors }}
+  
+  <p>
+    <label for="customer_email" class="text-sm text-gray-500 uppercase">Email Address</label>
+    <input type="email" value="" placeholder="you@example.com" name="customer[email]" id="customer_email" class="form-input w-full" />
+  </p>
+  
+  <p>
+    <label for="customer_password" class="text-sm text-gray-500 uppercase">Password</label>
+    <input type="password" value="" name="customer[password]" id="customer_password" class="form-input w-full" size="16" />
+  </p>
+  
+  <p>
+    <input class="btn btn--green w-full" type="submit" value="Sign In" />
+  </p>
+  
+  {% endform %}
+  
+  <h3>Forgot your password?</h3>
+  {% form 'recover_customer_password' %}
+  {{ form.errors | default_errors }}
+  <p>
+    <label for="email" class="text-sm text-gray-500 uppercase">Email Address</label>
+    <input type="email" value="" size="30" name="email"  placeholder="you@example.com" id="recover-email" class="form-input w-full" />
+  </p>
+  <p><input class="btn w-full" type="submit" value="Recover Your Password" /></p>
+  {% endform %}
+  
+  <h3>Need an account?</h3>
+  <a class="btn w-full text-center" href="{{ shop.url }}/account/register">Register New User</a>
+</div>

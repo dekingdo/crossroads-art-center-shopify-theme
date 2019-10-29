@@ -1,0 +1,25 @@
+{% if template contains 'search' %}
+  {% if search.terms.size > 0 %}
+  {% assign theTitle = 'Search Results for "' | append: search.terms | append: '"' %}
+  {% else %}
+  {% assign theTitle = "Search" %}
+  {% endif %}
+{% elsif template contains '404' %}
+{% assign theTitle = "Page not found" %}
+{% elsif template contains 'cart' %}
+{% assign theTitle = "Your Cart" %}
+{% elsif template contains 'classes' %}
+{% assign theTitle = "Classes + Workshops" %}
+{% elsif template contains 'page' %}
+{% assign theTitle = page.title %}
+{% elsif template contains 'blog' %}
+{% assign theTitle = blog.title %}
+{% else %}
+{% assign theTitle = "" %}
+{% endif %}
+
+<header class="py-8 text-center bg-magenta-500 text-white">
+  <div class="container">
+    <h1>{{ theTitle }}</h1>
+  </div>
+</header>

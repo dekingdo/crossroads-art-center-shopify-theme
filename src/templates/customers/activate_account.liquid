@@ -1,0 +1,24 @@
+{% include 'breadcrumbs' %}
+<div class="w-full max-w-lg px-4 my-8 mx-auto">
+    <h1 class="text-center">Activate Account</h1>
+
+    <p class="note create-password">Create your password to activate your account</p>
+
+    {% form 'activate_customer_password' %}
+    {{ form.errors | default_errors }}
+
+    <p>
+      <label class="text-sm text-gray-500 uppercase" for="password">Password</label>
+      <input type="password" value="" name="customer[password]" id="customer_password" class="form-input w-full" size="16" />
+    </p>
+
+    <p>
+      <label class="text-sm text-gray-500 uppercase" for="password_confirmation">Password Confirmation</label>
+      <input type="password" value="" name="customer[password_confirmation]" id="customer_password_confirmation" class="form-input w-full" size="16" />
+    </p>
+
+    <input class="btn btn--green w-full" type="submit" value="Activate Account" />
+
+    {% endform %}
+
+</div>

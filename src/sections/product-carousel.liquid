@@ -1,0 +1,72 @@
+{% assign collection = collections[section.settings.collection] %}
+{% if section.settings.carouselTitle.size > 0 %}
+{% assign carouselTitle = section.settings.carouselTitle %}
+{% else %}
+{% assign carouselTitle = collection.title %}
+{% endif %}
+
+<div class="container my-8">
+  {% if section.settings.showCollectionImage %}
+  <a href="{{ collection.url }}">
+    <img
+      class="w-full h-auto mb-4"
+      src="{{ collection.image.src | img_url: '1200x675', crop: "center" }}"
+      alt="{{ collection.title }}"
+    />
+  </a>
+  {% else %}
+  <h2 class="text-center">
+    <a href="{{ collection.url }}">
+      {{ carouselTitle }}
+    </a>
+  </h2>
+  {% endif %}
+  <section class="js-product-carousel" id="section-{{ section.id }}">
+    {% for product in collection.products limit: section.settings.productsToShow %}
+      {% include 'content-product' with product %}
+    {% endfor %}
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Product Carousel",
+  "class": "cac-product-carousel",
+  "settings": [
+    {
+      "id": "carouselTitle",
+      "type": "text",
+      "label": "Carousel Title",
+      "info": "Defaults to Collection title if blank"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "Collection to show"
+    },
+    {
+      "type": "checkbox",
+      "id": "showCollectionImage",
+      "label": "Show Collection Image",
+      "default": false,
+      "info": "Display the collection image intead of title."
+    },
+    {
+      "type": "range",
+      "id": "productsToShow",
+      "label": "How many products to show",
+      "min": 4,
+      "max": 24,
+      "step": 4,
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Slider",
+      "category": "Slider"
+    }
+  ]
+}
+{% endschema %}

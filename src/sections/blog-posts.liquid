@@ -1,0 +1,88 @@
+{% assign blog = blogs[section.settings.blog] %}
+
+<div class="container my-8">
+  <h2 class="text-center">
+    <a href="{{ blog.url }}">{{ blog.title }}</a>
+  </h2>
+  <section id="section-{{ section.id }}">
+    <div class="flex flex-wrap -mx-2">
+      {% for article in blog.articles limit: section.settings.post_limit %}
+      <div class="w-full md:w-1/2 p-2">  
+        <article>
+          <div class="sm:flex items-center">
+            {% if article.image %}
+            <div class="hidden sm:block w-32 lg:w-40 pr-4">
+              <a href="{{ article.url }}">
+                <img class="" alt="article.image.alt" src="{{ article.image | img_url: '240x240', crop: "center" }}" />
+              </a>
+            </div>
+            {% endif %}
+            <div class="flex-1">
+              <div class="text-xs uppercase text-gray-500">{{ article.published_at | date: format: 'abbreviated_date' }}</div>
+              <h4 class="mt-0">
+                <a href="{{ article.url }}">
+                  {{ article.title }}
+                </a>
+              </h4>
+              <p class="text-sm text-gray-500">
+                {{ article.content | strip_html | truncate: 90 }}
+                <a class="text-sm" href="{{ article.url }}">Read More…</a>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Blog posts",
+  "settings": [
+  {
+    "type": "text",
+    "id": "title",
+    "label": "Heading",
+    "default": "News"
+  },
+  {
+    "id": "blog",
+    "type": "blog",
+    "label": "Blog"
+  },
+  {
+    "type": "range",
+    "id": "post_limit",
+    "label": "Posts",
+    "min": 4,
+    "max": 12,
+    "step": 4,
+    "default": 4
+  },
+  {
+    "type": "checkbox",
+    "id": "blog_show_author",
+    "label": "Show author",
+    "default": false
+  },
+  {
+    "type": "checkbox",
+    "id": "blog_show_date",
+    "label": "Show date",
+    "default": true
+  }
+  ],
+  "presets": [
+  {
+    "name": "Blog posts",
+    "category": "Blog",
+    "settings": {
+      "blog": "News",
+      "post_limit": 4
+    }
+  }
+  ]
+}
+{% endschema %}

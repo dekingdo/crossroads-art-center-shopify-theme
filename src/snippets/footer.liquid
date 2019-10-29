@@ -1,0 +1,151 @@
+<footer class="bg-gray-500 text-gray-100">
+  <div class="bg-orange-500 text-center py-4">
+    <a
+      href="{{ settings.my_textlink }}"
+      title="{{ settings.my_text }}"
+      class="text-orange-100 hover:text-white text-2xl"
+    >
+      {{ settings.my_text }}
+    </a>
+  </div>
+
+  <div class="py-8 px-4">
+
+      <div class="flex justify-center mb-8">
+          {% if settings.footer-facebook-follow-url.size > 0 %}
+            <a class="mx-2 text-white hover:text-orange-500 hover:no-underline" title="facebook" aria-hidden="true" target="_blank" class="glyph facebook" href="{{ settings.footer-facebook-follow-url }}">
+              <i class="fab fa-2x fa-facebook"></i>
+            </a>
+          {% endif %}
+          {% if settings.footer-twitter-follow-url.size > 0 %}
+            <a class="mx-2 text-white hover:text-orange-500 hover:no-underline" title="twitter" aria-hidden="true" target="_blank" class="glyph twitter" href="{{ settings.footer-twitter-follow-url }}">
+              <i class="fab fa-2x fa-twitter"></i>
+            </a>
+          {% endif %}
+          {% if settings.footer-instagram-follow-url.size > 0 %}
+            <a class="mx-2 text-white hover:text-orange-500 hover:no-underline" title="instagram" aria-hidden="true" target="_blank" class="glyph instagram" href="{{ settings.footer-instagram-follow-url }}">
+              <i class="fab fa-2x fa-instagram"></i>
+            </a>
+          {% endif %}
+          {% if settings.footer-pinterest-follow-url.size > 0 %}
+            <a class="mx-2 text-white hover:text-orange-500 hover:no-underline" title="pinterest" aria-hidden="true" target="_blank" class="glyph pinterest" href="{{ settings.footer-pinterest-follow-url }}">
+              <i class="fab fa-2x fa-pinterest"></i>
+            </a>
+          {% endif %}
+          {% if settings.footer-tumblr-follow-url.size > 0 %}
+            <a class="mx-2 text-white hover:text-orange-500 hover:no-underline" title="tumblr" aria-hidden="true" target="_blank" class="glyph tumblr" href="{{ settings.footer-tumblr-follow-url }}">
+              <i class="fab fa-2x fa-tumblr"></i>
+            </a>
+          {% endif %}
+          {% if settings.footer-vimeo-follow-url.size > 0 %}
+            <a class="mx-2 text-white hover:text-orange-500 hover:no-underline" title="vimeo" aria-hidden="true" target="_blank" class="glyph vimeo" href="{{ settings.footer-vimeo-follow-url }}">
+              <i class="fab fa-2x fa-vimeo"></i>
+            </a>
+          {% endif %}
+          {% if settings.footer-youtube-follow-url.size > 0 %}
+            <a class="mx-2 text-white hover:text-orange-500 hover:no-underline" title="youtube" aria-hidden="true" target="_blank" class="glyph youtube" href="{{ settings.footer-youtube-follow-url }}">
+              <i class="fab fa-2x fa-youtube"></i>
+            </a>
+          {% endif %}
+          {% if settings.footer-rss-follow-url.size > 0 %}
+            <a class="mx-2 text-white hover:text-orange-500 hover:no-underline" title="rss" aria-hidden="true" target="_blank" class="glyph feed" href="{{ settings.footer-rss-follow-url }}">
+              <i class="fas fa-2x fa-rss"></i>
+            </a>
+          {% endif %}
+        </div>
+
+    <div class="md:flex -mx-2 -my-8">
+      <div class="md:w-0 flex-grow mx-2 my-8">
+          <h4>{{ settings.footer-block-1-title }}</h4>
+          <p class="text-sm">{{ settings.footer-block-1-text | newline_to_br }}</p>
+      </div>
+      
+      <div class="md:w-0 flex-grow mx-2 my-8">
+        <h4>{{ settings.footer-block-2-title }}</h4>
+        {% assign footer_nav = 'footer' %}
+        {% if linklists[settings.footer-block-2-linklist].links.size > 0 %}
+        {% assign footer_nav = settings.footer-block-2-linklist %}
+        {% endif %}
+        <ul class="list-none pl-0 text-sm" role="navigation">
+          {% for link in linklists[footer_nav].links %}
+          <li>
+            <a
+              class="text-gray-100 hover:text-orange-500 hover:no-underline"
+              href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      <div class="md:w-0 flex-grow mx-2 my-8">
+        <h4>{{ settings.footer-block-3-title }}</h4>
+        {% assign footer_nav = 'footer' %}
+        {% if linklists[settings.footer-block-3-linklist].links.size > 0 %}
+        {% assign footer_nav = settings.footer-block-3-linklist %}
+        {% endif %}
+        <ul class="list-none pl-0 text-sm" role="navigation">
+          {% for link in linklists[footer_nav].links %}
+          <li>
+            <a class="text-gray-100 hover:text-orange-500 hover:no-underline" href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      {% if settings.footer-mailing-list-show %}
+      <div class="md:w-0 flex-grow mx-2 my-8">
+        
+        
+        {% if settings.footer-mailing-list-title.size > 0 %}
+        <h4>{{ settings.footer-mailing-list-title }}</h4>
+        {% endif %}    
+        
+        {% if settings.footer-mailing-list-tag-line.size > 0 %}
+        <p>{{ settings.footer-mailing-list-tag-line }}</p>
+        {% endif %}
+          
+          {% if settings.footer-mailing-list-form-action.size > 0 %}
+          
+          <form action="{{ settings.footer-mailing-list-form-action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mailchimp-form validate" target="_blank">
+            <div class="flex">
+              <input class="form-input text-gray-500 border-r-0 rounded-r-none" id="email-input" name="EMAIL" placeholder="Your Email" type="email"/>
+              <input class="btn btn--orange rounded-l-none" id="email-submit" name="subscribe" type="submit" value="OK"/>
+            </div>
+          </form>
+          
+          {% else %}
+          
+          {% form 'customer' %}
+          {% if form.posted_successfully? %}
+          <p class="success">Thank you for signing up!</p>
+          {% endif %}
+          {% if form.errors %}
+          <p class="errors">
+            {% for field in form.errors %}
+            {{ field }}
+            {{ form.errors.messages[field] }}
+            {% endfor %}
+          </p>
+          {% endif %}
+          <input id="contact_tags" name="contact[tags]" type="hidden" value="prospect,newsletter"/>
+          <input id="newsletter-first-name" name="contact[first_name]" type="hidden" value="Subscriber"/>
+          <input id="newsletter-last-name" name="contact[last_name]" type="hidden" value="Newsletter"/>
+          <div class="flex">
+            <input class="form-input text-gray-500 border-r-0 rounded-r-none" name="contact[email]" placeholder="Your Email" type="email"/>
+            <button id="email-submit" name="subscribe" type="submit" class="btn btn--orange rounded-l-none">Ok</button>
+          </div>
+          {% if form.posted_successfully? or form.errors %}
+          <script>window.location.hash = '#mailing-list-module';</script>
+          {% endif %}
+          {% endform %}
+          {% endif %}
+        </div>
+        
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+</footer>

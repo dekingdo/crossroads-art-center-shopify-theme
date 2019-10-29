@@ -1,0 +1,99 @@
+{% include 'page-header' %}
+
+<div class="container">
+  
+  {% if cart.item_count > 0 %}
+  
+  <form action="/cart" method="post" class="custom">
+
+        {% for item in cart.items %}
+        {% if forloop.first %}
+        {% assign coll_handle = item.product.collections.first.handle %}
+        {% if coll_handle == 'frontpage' or coll_handle == '' %}{% assign coll_handle = 'all' %}{% endif %}
+        {% endif %}
+        <div class="flex flex-wrap sm:flex-no-wrap justify-end items-center border-t border-gray-200 py-2 md:py-4 text-sm md:text-base">
+          <div class="hidden md:block md:w-16 m-2 flex-shrink-0">
+            <a href="{{ item.product.url | within: collections.all }}">  
+              {% assign option_index = 0 %}
+              {% assign found_option = false %}
+              {% assign image_index = 0 %}
+              {% assign found_image = false %}
+              {% for option in item.product.options %}
+              {% unless found_option %}
+              {% assign downcased_option = option | downcase %}
+              {% if downcased_option contains 'color' or downcased_option contains 'colour' or downcased_option contains 'style' %}
+              {% assign option_index = forloop.index0 %}
+              {% assign found_option = true %}
+              {% endif %}
+              {% endunless %}
+              {% endfor %}
+              {% if found_option %}
+              {% for image in item.product.images %}
+              {% unless found_image %}
+              {% if image.alt == item.variant.options[option_index] %}
+              {% assign image_index = forloop.index0 %}
+              {% assign found_image = true %}
+              {% endif %}
+              {% endunless %}
+              {% endfor %}
+              {% endif %}
+              <img src="{{ item.product.images[image_index].src | product_img_url: '64x64' }}" alt="{{ item.title | escape }}" />
+            </a>
+          </div>
+          <div class="title w-full sm:w-auto flex-grow m-2">
+            <p><a href="{{ item.product.url }}">{{ item.title }}</a></p>
+          </div>
+          <div class="quantity text-center flex-shrink-0 w-24 m-2">
+            <span class="text-xs uppercase text-gray-500">Qty</span>
+            <input type="number" class="form-input w-16" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" />
+          </div>
+          <div class="total text-center flex-shrink-0 w-24 m-2">{{ item.line_price | money }}</div>
+          <div class="remove w-8 m-2">
+            <a title="Remove" href="/cart/change?line={{ forloop.index }}&quantity=0" aria-hidden="true" title="remove">
+              <i class="fal fa-trash-alt fa-2x"></i>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+    <div class="order-notes my-8">
+      <div class="container">
+        <h3>Order Notes</h3>
+        <textarea class="form-input w-full max-w-xl" id="cart-notes-area" name="note">
+          {{ cart.note }}
+        </textarea>
+      </div>
+    </div>
+
+    <div class="totals my-8">
+      <h3>SUBTOTAL {{ cart.total_price | money }}</h3>
+      <h4 id="estimated-shipping" style="display:none">+ Estimated shipping <em>{{ 0 | money }}</em></h4>
+      <input type="submit" name="update" class="btn" value="Update cart" />
+      <input  class="btn btn--green" type="submit" name="checkout" value="Check out" />
+      {% if additional_checkout_buttons %}
+      <p class="additional-checkout-buttons">
+        {{ content_for_additional_checkout_buttons }}
+      </p>
+      {% endif %}
+    </div>
+    
+    <div class="continue-shopping my-8">
+      <a class="btn" href="/collections/{{ coll_handle }}">Continue Shopping</a>
+    </div>
+    
+  </form>
+  
+  
+  {% else %}
+  
+  <section class="empty-cart text-center my-8">
+    <p>It appears that your cart is currently empty!</p>
+    <a class="btn btn--green" href="/collections/all">Browse All Art</a>
+  </section>
+  
+  {% endif %}
+  
+</div>
+

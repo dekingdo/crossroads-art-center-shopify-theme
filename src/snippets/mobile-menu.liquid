@@ -1,0 +1,55 @@
+<div>
+  <form action="/search" method="get" role="search">
+    <input type="hidden" name="type" value="product" />
+    <div class="flex">
+      <input
+      class="form-input rounded-r-none border-r-0"
+      name="q"
+      type="text"
+      placeholder="Search store..."
+      class="search-box hint text"
+      />
+      <button class="btn rounded-l-none"><i class="fal fa-search"></i> Search</button>
+    </div>
+  </form>
+</div>
+
+<div class="mt-4">
+  <nav role="navigation">
+    <ul class="list-none pl-0">
+      {% for link in linklists[settings.header-mainmenu-linklist].links %}
+      <li>
+        <a class="text-white uppercase text-lg" href="{{ link.url }}">
+          {{ link.title }}
+        </a>
+        {% if link.links != blank %}
+        <ul class="text-black">
+          {% for childlink in link.links %}
+            <li>
+              <a class="text-black" href="{{ childlink.url }}">
+                {{ childlink.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+
+<div class="mt-4">
+  {% if cart.item_count > 0 %}
+  <a class="btn" href="/cart">
+    <i class="fas fa-shopping-cart"></i> Cart
+      (<span class="number"> {{ cart.item_count }}</span>)
+    </a>
+  {% endif %}
+  {% if customer %}
+  <a class="btn" href="/account"><i class="fas fa-user"></i> {{ customer.first_name }}</a>
+  <span class="separator">|</span> {{ "Logout" | customer_logout_link }}
+  {% else %}
+  {{ "Log in" | customer_login_link | replace: '<a', '<a class="btn" ' }} or {{ "Sign Up" | customer_register_link | replace: '<a', '<a class="btn" ' }}
+  {% endif %}
+</div>

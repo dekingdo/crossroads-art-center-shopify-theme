@@ -1,0 +1,17 @@
+<div>
+  <a class="block" href="{{ collection.url }}">
+    <img class="w-full h-auto"
+    {% if collection.image %}
+      src="{{ collection.image.src | img_url: '240x240', crop: 'center' }}"
+      alt="{{ collection.image.alt | escape }}"
+    {% else %}
+      src="{{ collection.products.first.featured_image.src | img_url: '240x240', crop: 'center' }}"
+      alt="{{ collection.products.first.featured_image.alt | escape }}"
+    {% endif %}
+    />
+  </a>
+  <h4 class="mb-0 mt-2">
+    <a href="{{ collection.url }}" class="text-gray-800">{{ collection.title }}</a>
+  </h4>
+  {{ collection.all_products_count }} {{ collection.all_products_count | pluralize:'product','products' }}
+</div>

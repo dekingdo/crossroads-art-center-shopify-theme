@@ -1,0 +1,184 @@
+{
+  "current": {
+    "my_text": "LEARN HOW TO JOIN BUY RVA ART TODAY",
+    "my_textlink": "\/pages\/about-us",
+    "footer-block-1-title": "ABOUT BUY RVA ART",
+    "footer-block-1-text": "BuyRVAart.com is a highly curated, online collection of the Richmond Area's Visual Artists. We are the online Art Shop for our brick and mortar store Crossroads Art Center.",
+    "footer-payment-options-show": false,
+    "footer-payment-amex": true,
+    "footer-payment-diners": false,
+    "footer-payment-discover": true,
+    "footer-payment-visa": true,
+    "footer-payment-mastercard": true,
+    "footer-payment-skrill": false,
+    "footer-payment-stripe": false,
+    "footer-payment-paypal": false,
+    "footer-payment-googlewallet": false,
+    "footer-payment-switch": false,
+    "footer-block-2-title": "More Information",
+    "footer-block-2-linklist": "footer",
+    "footer-block-3-title": "Popular Collections",
+    "footer-block-3-linklist": "popular-collections",
+    "footer-mailing-list-show": true,
+    "footer-mailing-list-form-action": "",
+    "footer-mailing-list-title": "Subscribe",
+    "footer-mailing-list-tag-line": "Signup to get the latest Buy RVA Art news.",
+    "footer-facebook-follow-url": "https:\/\/www.facebook.com\/BuyRVAArt",
+    "footer-twitter-follow-url": "https:\/\/twitter.com\/buyrvaart",
+    "footer-instagram-follow-url": "https:\/\/www.instagram.com\/buyrvaart\/",
+    "footer-vimeo-follow-url": "",
+    "footer-pinterest-follow-url": "https:\/\/www.pinterest.com\/crossroadsart\/",
+    "footer-youtube-follow-url": "https:\/\/www.youtube.com\/channel\/UCPbiO8P2PW3VbP2du2O-mzw",
+    "footer-tumblr-follow-url": "",
+    "footer-rss-follow-url": "",
+    "footer-mailing-tag-line": "Signup to get the latest news...",
+    "footer-mailing-tag-tag-line": "Join our newsletter for sales, and updates..",
+    "mailing_list_title": "Newsletter",
+    "mailchimp_form_action": "",
+    "footer-newsletter-tag-line": "Sign up to get the latest on sales, new releases...",
+    "show_mailing_list_module": "true",
+    "mailing_list_tagline": "Signup to get the latest on sales, new releases...",
+    "home-promo-1-caption": "",
+    "home-promo-2-caption": "",
+    "home-promo-3-caption": "",
+    "facebook_url": "http:\/\/www.facebook.com\/shopify",
+    "twitter_url": "http:\/\/www.twitter.com\/shopify",
+    "google_plus_url": "http:\/\/plus.google.com",
+    "tumblr_url": "http:\/\/shopify.tumblr.com",
+    "instagram_url": "http:\/\/instagram\/shopify",
+    "pinterest_url": "http:\/\/pinterest.com\/shopify",
+    "youtube_url": "http:\/\/www.youtube.com\/shopify",
+    "vimeo_url": "http:\/\/vimeo.com\/shopify",
+    "rss_feed_burner": "http:\/\/vimeo.com\/shopify",
+    "mini_slider_title": "Products of the week",
+    "show_rss": "none",
+    "facebook_follow_button": "true",
+    "facebook_share_button": "true",
+    "twitter_follow_button": "true",
+    "twitter_share_button": "true",
+    "google_plus_follow_button": "true",
+    "google_plus_share_button": "true",
+    "tumblr_follow_button": "true",
+    "tumblr_share_button": "true",
+    "instagram_follow_button": "true",
+    "instagram_share_button": "true",
+    "pinterest_follow_button": "true",
+    "pinterest_share_button": "true",
+    "youtube_follow_button": "true",
+    "vimeo_follow_button": "true",
+    "show_payment_options": "true",
+    "show_paypal": "true",
+    "show_visa": "true",
+    "show_mastercard": "true",
+    "show_amex": "false",
+    "show_discover": "false",
+    "show_cirrus": "false",
+    "show_maestro": "false",
+    "show_google_wallet": "false",
+    "show_dankort": "false",
+    "payment_methods_dark": "false",
+    "header-mainmenu-linklist": "navbar-2019",
+    "footer-payment-maestro": "true",
+    "footer-payment-cirrus": "true",
+    "footer-payment-google": "true",
+    "sections": {
+      "1567026523581": {
+        "type": "home-slider",
+        "blocks": {
+          "1567026523581-0": {
+            "type": "image",
+            "settings": {
+              "sliderImage": "shopify:\/\/shop_images\/home-slider-slide-1.jpg",
+              "title": "Duis congue venenatis",
+              "tagline": "Proin congue, libero id vestibulum pretium, nibh odio vehicula purus.",
+              "link-title": "Shop now",
+              "link": "shopify:\/\/collections\/all"
+            }
+          },
+          "1567026523581-2": {
+            "type": "image",
+            "settings": {
+              "sliderImage": "shopify:\/\/shop_images\/home-slider-slide-3.jpg",
+              "title": "Duis congue venenatis",
+              "tagline": "Proin congue, libero id vestibulum pretium, nibh odio vehicula purus.",
+              "link-title": "Shop now",
+              "link": "shopify:\/\/collections\/all"
+            }
+          },
+          "1567026806531": {
+            "type": "image",
+            "settings": {
+              "sliderImage": "shopify:\/\/shop_images\/home-slider-slide-4.jpg",
+              "title": "Duis congue venenatis",
+              "tagline": "Proin congue, libero id vestibulum pretium, nibh odio vehicula purus.",
+              "link-title": "Shop now",
+              "link": "shopify:\/\/collections\/all"
+            }
+          },
+          "1567026523581-1": {
+            "type": "image",
+            "settings": {
+              "sliderImage": "shopify:\/\/shop_images\/home-slider-slide-2.jpg",
+              "title": "Duis congue venenatis",
+              "tagline": "Proin congue, libero id vestibulum pretium, nibh odio vehicula purus.",
+              "link-title": "Shop now",
+              "link": "shopify:\/\/collections\/all"
+            }
+          },
+          "1567026816328": {
+            "type": "image",
+            "settings": {
+              "sliderImage": "shopify:\/\/shop_images\/home-slider-slide-5.jpg",
+              "title": "Duis congue venenatis",
+              "tagline": "Proin congue, libero id vestibulum pretium, nibh odio vehicula purus.",
+              "link-title": "Shop now",
+              "link": "shopify:\/\/collections\/all"
+            }
+          },
+          "1567026825249": {
+            "type": "image",
+            "settings": {
+              "sliderImage": "shopify:\/\/shop_images\/home-slider-slide-6.jpg",
+              "title": "Duis congue venenatis",
+              "tagline": "Proin congue, libero id vestibulum pretium, nibh odio vehicula purus.",
+              "link-title": "Shop now",
+              "link": "shopify:\/\/collections\/all"
+            }
+          }
+        },
+        "block_order": [
+          "1567026523581-0",
+          "1567026523581-2",
+          "1567026806531",
+          "1567026523581-1",
+          "1567026816328",
+          "1567026825249"
+        ],
+        "settings": {
+          "slidertitle": ""
+        }
+      },
+      "1567101588377": {
+        "type": "product-slider",
+        "settings": {
+          "slidertitle": "",
+          "collection": "pre-owned-art-sale",
+          "productsToShow": 16
+        }
+      },
+      "1567109016733": {
+        "type": "product-slider",
+        "settings": {
+          "slidertitle": "",
+          "collection": "en-plein-air",
+          "productsToShow": 16
+        }
+      }
+    },
+    "content_for_index": [
+      "1567026523581",
+      "1567101588377",
+      "1567109016733"
+    ]
+  }
+}

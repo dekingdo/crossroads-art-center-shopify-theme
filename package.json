@@ -1,0 +1,80 @@
+{
+  "name": "crossroads-art-center-theme",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "scripts": {
+    "start": "cross-env NODE_ENV=development node ./build/start.js --watch",
+    "build": "cross-env NODE_ENV=production node ./build/build.js",
+    "deploy": "shopify-themekit deploy",
+    "startcli": "webpack-cli --config build/webpack.config.js --mode=development --watch --display=normal",
+    "buildcli": "webpack-cli --config build/webpack.config.js --mode=production --display=normal"
+  },
+  "engines": {
+    "node": ">= 4.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "@shopify/themekit": "^1.1.2",
+    "babel-loader": "^8.0.4",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.0.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "file-loader": "^4.0.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "imagemin-gifsicle": "^6.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-optipng": "^7.0.0",
+    "imagemin-svgo": "^7.0.0",
+    "imagemin-webpack": "^5.0.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.6.0",
+    "prettier-eslint": "^9.0.0",
+    "prettier-stylelint": "^0.4.2",
+    "sass-loader": "^7.0.0",
+    "style-loader": "^0.23.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.0.0",
+    "stylelint-order": "^3.0.0",
+    "stylelint-scss": "^3.5.4",
+    "terser-webpack-plugin": "^1.2.2",
+    "webpack": "^4.4.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-brands-svg-icons": "^5.10.2",
+    "@fortawesome/pro-duotone-svg-icons": "^5.10.2",
+    "@fortawesome/pro-light-svg-icons": "^5.10.2",
+    "@fortawesome/pro-regular-svg-icons": "^5.10.2",
+    "@fortawesome/pro-solid-svg-icons": "^5.10.2",
+    "@tailwindcss/custom-forms": "^0.2.0",
+    "basiclightbox": "^5.0.2",
+    "hamburgers": "^1.1.3",
+    "list.js": "^1.5.0",
+    "shufflejs": "^5.2.3",
+    "tailwindcss": "^1.1.2",
+    "tailwindcss-aspect-ratio": "^2.0.0",
+    "tailwindcss-tables": "^0.4.0",
+    "tiny-slider": "^2.9.2",
+    "webfontloader": "^1.6.28"
+  }
+}

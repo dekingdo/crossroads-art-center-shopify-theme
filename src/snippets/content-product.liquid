@@ -1,0 +1,24 @@
+<div class="relative">
+  <a href="{% if collection.handle != 'all' %}{{ product.url | within: collection }}{% else %}{{ product.url }}{% endif %}">
+    <img
+      class="w-full h-auto"
+      src="{{ product.featured_image.src | img_url: '240x240', crop: 'center' }}"
+      alt="{{ product.featured_image.alt | escape }}"
+    />
+  </a>
+  <h4 class="text-sm mb-0 mt-2">
+    <a
+      href="{% if collection.handle != 'all' %}{{ product.url | within: collection }}{% else %}{{ product.url }}{% endif %}"
+      class="text-gray-800"
+    >
+    {{ product.title }}
+    </a>
+  </h4>
+  <a class="text-xs uppercase" href="/collections/{{ product.vendor | handleize }}">
+    {{ product.vendor }}
+  </a>
+  <div>{{ product.price | money_without_trailing_zeros }}</div>
+  {% if product.available == false %}
+  <div class="absolute text-sm p-2 bg-orange-500 text-white top-0 left-0 uppercase">Sold</div>
+  {% endif %}
+</div>

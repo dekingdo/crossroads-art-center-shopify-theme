@@ -1,0 +1,43 @@
+{% include 'breadcrumbs' %}
+{% include 'page-header' %}
+
+
+<div class="container-fluid my-8">
+  <div class="my-8 text-center">
+    <form  action="/search" method="get" role="search">
+      <input type="hidden" name="type" value="product" />
+      <input name="q" type="text" placeholder="Search store..." class="form-input" value="{{ search.terms }}" />
+      <button aria-hidden="false" class="btn btn--orange">Search</button>
+    </form>
+    {% if search.terms.size > 0 %}
+    <div class="my-4">
+      {% if search.results_count > 0 %}
+      <p>Found {{ search.results_count }} results for "{{ search.terms }}"</p>
+      {% else %}
+      <p>No results for "{{ search.terms }}"</p>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  {% if search.results != empty %}
+  
+  {% paginate search.results by 16 %}
+  
+  <section class="flex flex-wrap justify-center -mx-2">
+    {% for product in search.results %}
+    <div class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-64 p-2">
+      {% include 'content-product' %}
+    </div>
+    {% endfor %}
+  </section>
+
+  <div class="my-8 flex justify-center">
+    {% include 'pagination' %}
+  </div>
+  
+  {% endpaginate %}
+  
+  {% endif %}
+  
+</div>

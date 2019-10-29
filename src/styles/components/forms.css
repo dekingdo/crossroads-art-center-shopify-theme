@@ -1,0 +1,14 @@
+.errors {
+  @apply text-sm p-2 bg-orange-200 mb-4 border-orange-500 border;
+  & ul {
+    list-style: none;
+    padding-left:0;
+  }
+}
+.success {
+  @apply text-sm p-2 bg-green-200 mb-4 border-green-500 border;
+  & ul {
+    list-style: none;
+    padding-left:0;
+  }
+}

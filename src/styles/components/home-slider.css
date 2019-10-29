@@ -1,0 +1,94 @@
+/* purgecss start ignore */
+.cac-home-slider {
+}
+
+.cac-home-slider__slide {
+  position: relative;
+}
+.cac-home-slider__link {
+  @apply absolute inset-0;
+  font-size: 0;
+}
+.cac-home-slider__image {
+  @apply w-full h-auto;
+}
+.cac-home-slider__overlay {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+.cac-home-slider__text {
+  @apply p-8 text-center text-white;
+}
+.cac-home-slider__title {
+  @screen md {
+    @apply text-4xl;
+  }
+}
+.cac-home-slider__summary {
+  @apply hidden;
+  @screen sm {
+    @apply block;
+  }
+  @screen md {
+    @apply text-lg;
+  }
+}
+.cac-home-slider__btn {
+  @apply hidden;
+  @screen sm {
+    @apply inline-block;
+  }
+}
+
+.cac-home-slider__play {
+  background-color: theme("colors.shade.25");
+  border-radius: 1rem;
+  color: theme("colors.white");
+  font-size: 4rem;
+  line-height: 1;
+  padding: 2rem;
+  transition-duration: 0.25s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.5, 0.75, 0.75, 2);
+}
+.cac-home-slider__slide:hover .cac-home-slider__play {
+  background-color: theme("colors.shade.50");
+  transform: scale(1.25);
+}
+
+.cac-home-slider .tns-nav {
+  bottom: 1.25rem;
+  display: flex;
+  justify-content: center;
+  @apply px-4 py-2 mx-auto;
+  & > button {
+    background-color: theme("colors.orange.700");
+    border-radius: 100%;
+    display: block;
+    height: 1.25rem;
+    transition-duration: 0.1s;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.5, 0.75, 0.75, 2);
+    width: 1.25rem;
+    @apply mx-1;
+    &:hover {
+      background-color: theme("colors.orange.800");
+      border: 2px solid #ffffffcc;
+      transform: scale(1.25);
+      transition-duration: 0.25s;
+    }
+    &.tns-nav-active {
+      background-color: theme("colors.orange.500");
+      transition-duration: 0.25s;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  @screen md {
+    position: absolute;
+    right:0;
+    /* left: 50%;
+    transform: translateX(-50%); */
+  }
+}
+/* purgecss end ignore */

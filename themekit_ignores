@@ -1,0 +1,18 @@
+# plain file names and directories
+.circleci/*
+.git/*
+.gitignore
+Dockerfile
+README.md
+src
+build
+package.json
+node_modules
+
+# globs
+# *.png
+
+# regex
+# /\.(txt|gif|bat)$/
+
+settings_data.json

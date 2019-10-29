@@ -1,0 +1,156 @@
+[
+  {
+    "name": "General",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "general-favicon-enabled",
+        "label": "Use a [favicon](http:\/\/en.wikipedia.org\/wiki\/Favicon) image?"
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "label": "Upload a favicon",
+        "max-width": 32,
+        "max-height": 32,
+        "info": "(must be 32px x 32px)"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "my_text",
+        "label": "Top Bar Callout"
+      },
+      {
+        "type": "text",
+        "id": "my_textlink",
+        "label": "Top Bar Callout Link"
+      },
+      {
+        "type": "header",
+        "content": "Column 1"
+      },
+      {
+        "type": "text",
+        "id": "footer-block-1-title",
+        "label": "Title",
+        "default": "Store"
+      },
+      {
+        "type": "textarea",
+        "id": "footer-block-1-text",
+        "label": "Text",
+        "default": "Lorem Ipsum Dolor Sit"
+      },
+      {
+        "type": "header",
+        "content": "Column 2"
+      },
+      {
+        "type": "text",
+        "id": "footer-block-2-title",
+        "label": "Title",
+        "default": "Info"
+      },
+      {
+        "type": "link_list",
+        "id": "footer-block-2-linklist",
+        "label": "Linklist"
+      },
+      {
+        "type": "header",
+        "content": "Column 3"
+      },
+      {
+        "type": "text",
+        "id": "footer-block-3-title",
+        "label": "Title",
+        "default": "Info"
+      },
+      {
+        "type": "link_list",
+        "id": "footer-block-3-linklist",
+        "label": "Linklist"
+      },
+      {
+        "type": "header",
+        "content": "Column 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer-mailing-list-show",
+        "label": "Display Mailing List Module",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "footer-mailing-list-form-action",
+        "label": "MailChimp Form Action [( ? )](http:\/\/support.shopify.com\/customer\/portal\/articles\/640278)",
+        "info": "Leave blank to use default signup form. [Where do I get my MailChimp Form Action?](http:\/\/support.shopify.com\/customer\/portal\/articles\/640278)"
+      },
+      {
+        "type": "text",
+        "id": "footer-mailing-list-title",
+        "label": "Mailing List Title",
+        "default": "Subscribe"
+      },
+      {
+        "type": "textarea",
+        "id": "footer-mailing-list-tag-line",
+        "label": "Mailing List Tagline"
+      },
+      {
+        "type": "text",
+        "id": "footer-facebook-follow-url",
+        "label": "Facebook Follow URL",
+        "default": "\/facebook"
+      },
+      {
+        "type": "text",
+        "id": "footer-twitter-follow-url",
+        "label": "Twitter Follow URL",
+        "default": "\/twitter"
+      },
+      {
+        "type": "text",
+        "id": "footer-instagram-follow-url",
+        "label": "Instagram Follow URL",
+        "default": "\/instagram"
+      },
+      {
+        "type": "text",
+        "id": "footer-vimeo-follow-url",
+        "label": "Vimeo Follow URL",
+        "default": "\/vimeo"
+      },
+      {
+        "type": "text",
+        "id": "footer-pinterest-follow-url",
+        "label": "Pinterest Follow URL",
+        "default": "\/pinterest"
+      },
+      {
+        "type": "text",
+        "id": "footer-youtube-follow-url",
+        "label": "Youtube Follow URL",
+        "default": "\/youtube"
+      },
+      {
+        "type": "text",
+        "id": "footer-tumblr-follow-url",
+        "label": "Tumblr Follow URL",
+        "default": "\/tumblr"
+      },
+      {
+        "type": "text",
+        "id": "footer-rss-follow-url",
+        "label": "Rss Follow URL",
+        "default": "\/rss"
+      }
+    ]
+  }
+]

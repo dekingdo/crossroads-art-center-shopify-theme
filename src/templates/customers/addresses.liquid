@@ -1,0 +1,152 @@
+{% include 'breadcrumbs' %}
+<div class="w-full max-w-xl px-4 my-8 mx-auto">
+  <h1 class="text-center">Account Addresses</h1>
+  
+  <div id="address_tables">  
+
+      {% for address in customer.addresses %}
+      <div id="view_address_{{address.id}}" class="p-2 border bg-gray-100 border-gray-300 rounded mb-4">
+        <p>
+          {{ address.first_name }} {{address.last_name }} {% if address == customer.default_address %}<span class="text-xs uppercase font-bold">(Default Address)</span>{% endif %}
+        </p>
+        <p class="text-sm">
+          {{ address.company }}<br>
+          {{ address.street }}<br>
+          {{ address.city }} {% if address.province_code %}, {{ address.province_code }}{% endif %}<br>
+          {{ address.country }} {{ address.zip }}<br>
+        </p>
+        <p class="text-sm">
+          {{ address.phone }}
+        </p>
+        <p class="address_actions">
+          <span class="btn btn--small">{{ 'Edit' | edit_customer_address_link: address.id }}</span>
+          <span class="btn btn--small">{{ 'Delete' | delete_customer_address_link: address.id }}</span>
+        </p>
+      </div>
+      
+      <!-- edit address -->
+      <div id="edit_address_{{address.id}}" class="customer_address edit_address mb-4" style="display:none;">
+        <h3>Edit Address</h3>
+        {% form 'customer_address', address %}
+        <p>
+          <label class="text-sm text-gray-500 uppercase" for="address_first_name_{{form.id}}">First Name</label>
+          <input type="text" id="address_first_name_{{form.id}}" class="form-input w-full" name="address[first_name]" value="{{form.first_name}}" size="40" />
+        </p>
+        <p>
+          <label class="text-sm text-gray-500 uppercase" for="address_last_name_{{form.id}}">Last Name</label>
+          <input type="text" id="address_last_name_{{form.id}}" class="form-input w-full" name="address[last_name]" value="{{form.last_name}}" size="40" />
+        </p>
+        <p>
+          <label class="text-sm text-gray-500 uppercase" for="address_company_{{form.id}}">Company</label>
+          <input type="text" id="address_company_{{form.id}}" class="form-input w-full" name="address[company]" value="{{form.company}}" size="40" />
+        </p>
+        <p>
+          <label class="text-sm text-gray-500 uppercase" for="address_address1_{{form.id}}">Address1</label>
+          <input type="text" id="address_address1_{{form.id}}" class="form-input w-full" name="address[address1]" value="{{form.address1}}" size="40" />
+        </p>
+        <p>
+          <label class="text-sm text-gray-500 uppercase" for="address_address2_{{form.id}}">Address2</label>
+          <input type="text" id="address_address2_{{form.id}}" class="form-input w-full" name="address[address2]" value="{{form.address2}}" size="40" />
+        </p>
+        <p>
+          <label class="text-sm text-gray-500 uppercase" for="address_city_{{form.id}}">City</label>
+          <input type="text" id="address_city_{{form.id}}" class="form-input w-full" name="address[city]" value="{{form.city}}" size="40" />
+        </p>
+        <p>
+          <label class="text-sm text-gray-500 uppercase" for="address_country_{{form.id}}">Country</label><br>
+          <select class="form-select" id="address_country_{{form.id}}" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
+        </p>
+        <p id="address_province_container_{{form.id}}" style="display:none">
+          <label class="text-sm text-gray-500 uppercase" for="address_province_{{form.id}}">State</label><br>
+          <select id="address_province_{{form.id}}" class="form-input w-full" name="address[province]" data-default="{{form.province}}"></select>
+        </p>
+        <p>
+          <label class="text-sm text-gray-500 uppercase" for="address_zip_{{form.id}}">Zip</label>
+          <input type="text" id="address_zip_{{form.id}}" class="form-input w-full" name="address[zip]" value="{{form.zip}}" size="40" />
+        </p>   
+        <p>
+          <label class="text-sm text-gray-500 uppercase" for="address_phone_{{form.id}}">Phone</label>
+          <input type="text" id="address_phone_{{form.id}}" class="form-input w-full" name="address[phone]" value="{{form.phone}}" size="40" />
+        </p>
+        <p>{{ form.set_as_default_checkbox }} Set as Default Address?</p>
+        
+        <div class="action_bottom">
+          <input class="btn btn--green" type="submit" value="Update Address" />
+          <a class="btn" href="#" onclick="Shopify.CustomerAddress.toggleForm( {{form.id}} ); return false;">Cancel</a>
+        </div>        
+        {% endform %}
+      </div>
+      {% endfor %}
+    
+    <div id="add_address" class="customer_address edit_address my-8">
+      <h3>Add a new address</h3>
+      
+      {% form 'customer_address', customer.new_address %}
+      <p>
+        <label class="text-sm text-gray-500 uppercase" for="address_first_name_new">First Name</label>
+        <input type="text" id="address_first_name_new" class="form-input w-full" name="address[first_name]" value="{{form.first_name}}" size="40" />
+      </p>
+
+      <p>
+        <label class="text-sm text-gray-500 uppercase" for="address_last_name_new">Last Name</label>
+        <input type="text" id="address_last_name_new" class="form-input w-full" name="address[last_name]" value="{{form.last_name}}" size="40" />
+      </p>
+      
+      <p>
+        <label class="text-sm text-gray-500 uppercase" for="address_company_new">Company</label>
+        <input type="text" for="address_company_new" class="form-input w-full" name="address[company]" value="{{form.company}}" size="40" />
+      </p>
+      
+      <p>
+        <label class="text-sm text-gray-500 uppercase" for="address_address1_new">Address1</label>
+        <input type="text" id="address_address1_new" class="form-input w-full" name="address[address1]" value="{{form.address1}}" size="40" />
+      </p>
+      
+      <p>
+        <label class="text-sm text-gray-500 uppercase" for="address_address2_new">Address2</label>
+        <input type="text" id="address_address2_new" class="form-input w-full" name="address[address2]" value="{{form.address2}}" size="40" />
+      </p>
+      
+      <p>
+        <label class="text-sm text-gray-500 uppercase" for="address_city_new">City</label>
+        <input type="text" id="address_city_new" class="form-input w-full" name="address[city]" value="{{form.city}}" size="40" />
+      </p>
+
+      <p>
+        <label class="text-sm text-gray-500 uppercase" for="address_country_new">Country</label><br>
+        <select class="form-select" id="address_country_new" name="address[country]" data-default="{{form.country}}">
+          {{ country_option_tags }}
+        </select>
+      </p>
+
+      <p id="address_province_container_new" style="display:none">
+        <label class="text-sm text-gray-500 uppercase" for="address_province_new">State</label>
+        <select id="address_province_new" class="form-select" name="address[province]" data-default="{{form.province}}"></select>
+      </p>
+
+      <p>
+        <label class="text-sm text-gray-500 uppercase" for="address_zip_new">Zip</label>
+        <input type="text" id="address_zip_new" class="form-input w-full" name="address[zip]" value="{{form.zip}}" size="40" />
+      </p>
+      
+      <p>
+        <label class="text-sm text-gray-500 uppercase" for="address_phone_new">Phone</label>
+        <input type="text" id="address_phone_new" class="form-input w-full" name="address[phone]" value="{{form.phone}}" size="40" />
+      </p>
+      
+      {{ form.set_as_default_checkbox }} Set as Default Address?
+    
+    <input class="button" type="submit" value="Add Address" />
+    <span class="note">or <a href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">Cancel</a></span>
+    
+    {% endform %}
+  </div>
+  
+  <script type="text/javascript" charset="utf-8">
+    // initialize observers on address selectors
+    new Shopify.CountryProvinceSelector('address_country_new', 'address_province_new', {hideElement: 'address_province_container_new'});  
+    {% for address in customer.addresses %}
+    new Shopify.CountryProvinceSelector('address_country_{{address.id}}', 'address_province_{{address.id}}', {hideElement: 'address_province_container_{{address.id}}'});
+    {% endfor %}
+  </script>
+  

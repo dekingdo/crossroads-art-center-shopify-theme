@@ -1,0 +1,79 @@
+<style>
+  @font-face {
+    font-family: 'blockshop-icons'; src: url('{{ "blockshop-icons.eot" | asset_url }}'); src: url('{{ "blockshop-icons.eot" | asset_url }}?#iefix') format("embedded-opentype"), url('{{ "blockshop-icons.woff" | asset_url }}') format("woff"), url('{{ "blockshop-icons.ttf" | asset_url }}') format("truetype"), url('{{ "blockshop-icons.svg" | asset_url }}') format("svg");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* {{ settings.font_heading | font_face }}
+  {{ settings.font_body | font_face }}
+  {%- assign font_body_bold = settings.font_body | font_modify: 'weight', 'bolder' -%}
+  {%- assign font_body_bold_italic = font_body_bold | font_modify: 'style', 'italic' -%}
+  {{ font_body_bold | font_face }}
+  {{ font_body_bold_italic | font_face }} */
+  :root {
+    --font-text: {% if settings.font-advanced-text-enabled %} "{{ settings.font-advanced-text }}" {% else %} {{ settings.font-text | remove_first: "google, " }} {% endif %};
+    --font-logo: {% if settings.font-advanced-headings-enabled %} "{{ settings.font-advanced-headings }}" {% else %} {{ settings.font-headings | remove_first: "google, " }} {% endif %};
+    --font-nav: {% if settings.font-advanced-mainmenu-enabled %} "{{ settings.font-advanced-mainmenu }}" {% else %} {{ settings.font-nav | remove_first: "google, " }} {% endif %};
+    --font-accent: {% if settings.font-advanced-accent-enabled %} "{{ settings.font-advanced-accent }}" {% else %} {{ settings.font-accent | remove_first: "google, " }} {% endif %};
+    --font-headings: {% if settings.font-advanced-headings-enabled %} "{{ settings.font-advanced-headings }}" {% else %} {{ settings.font-headings | remove_first: "google, " }} {% endif %};
+
+    --color-page-bg: {{ settings.color-page-bg }};
+    --color-border: {{ settings.color-border }};
+    --color-text: {{ settings.color-text }};
+    --color-text-alt: {{ settings.color-text-alt }};
+    --color-error: {{ settings.color-error }};
+    --color-link: {{ settings.color-link }};
+    --color-link-hover: {{ settings.color-link-hover }};
+
+    --color-button: {{ settings.color-button }};
+    --color-button-bg: {{ settings.color-button-bg }};
+    --color-button-bg-hover: {{ settings.color-button-bg-hover }};
+
+    --color-header-bg: {% if settings.color-header-bg-enabled %} {{ settings.color-header-bg }}  {% else %} {{ settings.color-panel-bg }} {% endif %};
+
+    --color-logo: {% if settings.color-logo-enabled %} {{ settings.color-logo }}  {% else %} {{ settings.color-text }} {% endif %};
+    --color-search-account: {% if settings.color-search-account-enabled %} {{ settings.color-search-account }}  {% else %} {{ settings.color-text }} {% endif %};
+    --color-menubar: {% if settings.color-menubar-enabled %} {{ settings.color-menubar }} {% else %} {{ settings.color-text }} {% endif %};
+    --color-menubar-bg: {% if settings.color-menubar-bg-enabled %} {{ settings.color-menubar-bg }}  {% else %} {{ settings.color-panel-bg }} {% endif %};
+    --color-menu-dropdown-bg: {% if settings.color-menubar-dropdown-bg-enabled %} {{ settings.color-menubar-dropdown-bg }}  {% else %} {{ settings.color-page-bg }} {% endif %};
+
+    --color-cart: {% if settings.color-cart-enabled %} {{ settings.color-cart }}  {% else %} {{ settings.color-text }} {% endif %};
+    --color-footer: {% if settings.color-footer-enabled %} {{ settings.color-footer }}  {% else %} {{ settings.color-text }} {% endif %};
+    --color-footer-bg: {% if settings.color-footer-bg-enabled %} {{ settings.color-footer-bg }} {% else %} {{ settings.color-panel-bg }} {% endif %};
+    
+    --color-grid-sold-out: {% if settings.color-grid-sold-out-enabled %} {{ settings.color-grid-sold-out }} {% else %} {{ settings.color-text }} {% endif %};
+    --color-grid-sold-out-bg: {% if settings.color-grid-sold-out-bg-enabled %} {{ settings.color-grid-sold-out-bg }} {% else %} {{ settings.color-panel-bg }} {% endif %};
+    --color-grid-name: {% if settings.color-grid-name-enabled %} {{ settings.color-grid-name }} {% else %} {{ settings.color-text }} {% endif %};
+    --color-grid-vendor: {% if settings.color-grid-vendor-enabled %} {{ settings.color-grid-vendor }} {% else %} {{ settings.color-text }} {% endif %};
+    --color-grid-price: {% if settings.color-grid-price-enabled %} {{ settings.color-grid-price }} {% else %} {{ settings.color-text }} {% endif %}
+    --color-grid-price-discount: {% if settings.color-grid-price-discount-enabled %} {{ settings.color-grid-price-discount }} {% else %} {{ settings.color-text-alt }} {% endif %};
+    --color-grid-sale: {% if settings.color-grid-sale-enabled %} {{ settings.color-grid-sale }}  {% else %} {{ settings.color-button }} {% endif %};
+    --color-grid-sale-bg: {% if settings.color-grid-sale-bg-enabled %} {{ settings.color-grid-sale-bg }}  {% else %} {{ settings.color-button-bg }} {% endif %};
+
+    --color-product-price: {% if settings.color-product-price-enabled %} {{ settings.color-product-price }}  {% else %} {{ settings.color-text }} {% endif %}
+    --color-product-compare-price: {% if settings.color-product-compare-price-enabled %} {{ settings.color-product-compare-price }}  {% else %} {{ settings.color-text-alt }} {% endif %};
+
+    --color-social-feed-bg: {% if settings.color-social-feed-bg-enabled %} {{ settings.color-social-feed-bg }}; {% else %} transparent {% endif %};
+
+    --color-slider-caption: {% if settings.color-slider-caption-enabled %} {{ settings.color-slider-caption }} {% else %} {{ settings.color-text }} {% endif %};
+    --color-slider-caption-bg: {% if settings.color-slider-caption-bg-enabled %} {{ settings.color-slider-caption-bg }}  {% else %} {{ settings.color-page-bg }} {% endif %}
+    --color-slider-button: {% if settings.color-slider-button-enabled %} {{ settings.color-slider-button }}  {% else %} {{ settings.color-button }} {% endif %};
+    --color-slider-button-bg {% if settings.color-slider-button-bg-enabled %} {{ settings.color-slider-button-bg }} {% else %} {{ settings.color-button-bg }} {% endif %};
+    --color-slider-button-hover-bg: {% if settings.color-slider-button-hover-bg-enabled %} {{ settings.color-slider-button-hover-bg }}  {% else %} {{ settings.color-button-bg-hover }} {% endif %};
+    --color-slider-nav: {% if settings.color-slider-nav-enabled %} {{ settings.color-slider-nav }}  {% else %} {{ settings.color-text }} {% endif %};
+    --color-tabs-accordion: {% if settings.color-tabs-accordions-enabled %} {{ settings.color-tabs-accordions }}  {% else %} {{ settings.color-panel-bg }} {% endif %};
+  
+    --color-product-slider-arrow: {% if settings.color-product-slider-arrow-enabled %} {{ settings.color-product-slider-arrow }} {% else %} {{ settings.color-text }} {% endif %};
+    --color-product-slider-bg: {% if settings.color-product-slider-bg-enabled %} {{ settings.color-product-slider-bg }} {% else %} transparent {% endif %};
+    --color-product-name: {% if settings.color-product-name-enabled %} {{ settings.color-product-name }}  {% else %} {{ settings.color-text }} {% endif %};
+    --color-product-vendor-name: {% if settings.color-product-vendor-name-enabled %} {{ settings.color-product-vendor-name }}  {% else %} {{ settings.color-text }} {% endif %};
+    --color-product-cart-button: {% if settings.color-product-cart-button-enabled %} {{ settings.color-product-cart-button }}  {% else %} {{ settings.color-button }} {% endif %};
+    --color-product-cart-button-bg: {% if settings.color-product-cart-button-bg-enabled %} {{ settings.color-product-cart-button-bg }}  {% else %} {{ settings.color-button-bg }} {% endif %};
+    --color-product-cart-button-bg-hover: {% if settings.color-product-cart-button-bg-hover-enabled %} {{ settings.color-product-cart-button-bg-hover }}  {% else %} {{ settings.color-button-bg-hover }} {% endif %};
+
+    --color-featured-promo-bg: {% if settings.color-featured-promo-bg-enabled %} {{ settings.color-featured-promo-bg }} {% else %} transparent {% endif %};
+
+    --color-panel-bg: {{ settings.color-panel-bg }};
+  }
+</style>

@@ -1,0 +1,11 @@
+@variants hover {
+  .filter-grayscale {
+    filter: grayscale(1);
+  }
+  .filter-sepia {
+    filter: sepia(1);
+  }
+  .filter-none {
+    filter: none;
+  }
+}

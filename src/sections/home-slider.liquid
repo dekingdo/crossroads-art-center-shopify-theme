@@ -1,0 +1,147 @@
+<section id="section-{{ section.id }}" class="cac-home-slider js-tiny-slider">
+  {% for block in section.blocks %}
+  {% if block.type == "image" %}
+    <div class="cac-home-slider__slide" {{ block.shopify_attributes }}>
+      <img 
+        class="cac-home-slider__image tns-lazy-img"
+        src="{{ block.settings.sliderImage.src | img_url: '200x113', crop: "center" }}"
+        data-src="{{ block.settings.sliderImage.src | img_url: '1200x675', crop: "center" }}"
+        alt="{{ block.settings.title }} | {{ block.settings.tagline }}"
+      />
+      {% if block.settings.showCaption %}
+      <div class="cac-home-slider__overlay bg-shade-25">
+        <div class="cac-home-slider__text">
+          <h3 class="cac-home-slider__title">
+            {{ block.settings.title }}
+          </h3>
+          <p class="cac-home-slider__summary">
+            {{ block.settings.summary }}
+          </p>
+          <a href="{{ block.settings.link }}" class="hidden sm:inline-block btn btn--orange">{{ block.settings.link-title }}</a>
+        </div>
+      </div>
+      {% endif %}
+      <a href="{{ block.settings.link }}" class="cac-home-slider__link" title="{{ block.settings.title }}">
+          <span class="screen-reader-text">{{ block.settings.link-title }}</span>
+      </a>
+    </div>
+  {% elsif block.type == "video" %}
+    <div class="cac-home-slider__slide" {{ block.shopify_attributes }}>
+      <img
+        class="cac-home-slider__image tns-lazy-img"
+        src="{{ block.settings.sliderImage.src | img_url: '200x113', crop: "center" }}"
+        data-src="{{ block.settings.sliderImage.src | img_url: '1200x675', crop: "center" }}"
+        alt="{{ block.settings.title }} | {{ block.settings.tagline }}"
+      />
+      <div class="cac-home-slider__overlay">
+        <div class="cac-home-slider__play">
+          <i class="fal fa-play"></i>
+        </div>
+      </div>
+      <a
+        href="#"
+        data-youtube="{{ block.settings.video_url.id }}"
+        class="js-video-lightbox-link cac-home-slider__link" title="{{ block.settings.title }}"
+      >
+        <span class="screen-reader-text">Play Video</span>
+      </a>
+    </div>
+  {% endif %}
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Slider",
+  "class": "cac-home-slider",
+  "settings": [
+    {
+      "id": "slidertitle",
+      "type": "text",
+      "label": "Slider Title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider",
+      "category": "Slider",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "sliderImage",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "showCaption",
+          "label": "Show Caption",
+          "default": false,
+          "info": "Whether to display a text caption"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "summary",
+          "label": "Summary"
+        },
+        {
+          "type": "text",
+          "id": "link-title",
+          "label": "Call to Action Title",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Slide Link",
+          "default": "\/collections\/all"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "sliderImage",
+          "label": "Image"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ],
+          "label": "Video Url",
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+          "info": "Info text",
+          "placeholder": "Placeholder text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

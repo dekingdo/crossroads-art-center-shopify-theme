@@ -1,0 +1,45 @@
+.btn {
+  display:inline-block;
+  @apply rounded;
+  @apply px-3 py-2;
+  @apply text-base text-gray-900;
+  @apply leading-normal;
+  @apply bg-gray-100;
+  @apply border border-gray-200;
+  @apply cursor-pointer;
+}
+
+.btn:hover {
+  @apply bg-gray-200 border-gray-300 no-underline;
+}
+
+.btn--small {
+  @apply text-sm;
+  @apply px-2 py-1;
+}
+
+.btn--disabled {
+  @apply text-gray-300;
+  pointer-events: none;
+}
+
+.btn--orange {
+  @apply bg-orange-500 border-orange-600 text-white;
+}
+.btn--orange:hover {
+  @apply bg-orange-600 border-orange-700;
+}
+
+.btn--magenta {
+  @apply bg-magenta-500 border-magenta-600 text-white;
+}
+.btn--magenta:hover {
+  @apply bg-magenta-600 border-magenta-700;
+}
+
+.btn--green {
+  @apply bg-green-500 border-green-600 text-white;
+}
+.btn--green:hover {
+  @apply bg-green-600 border-green-700;
+}

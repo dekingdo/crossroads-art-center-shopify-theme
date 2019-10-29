@@ -1,0 +1,26 @@
+{% include 'breadcrumbs' %}
+<div class="w-full max-w-lg px-4 my-8 mx-auto">
+
+      <h1 class="text-center">Register Account</h1>
+
+	    {% form 'create_customer' %}
+	
+	      {{ form.errors | default_errors }}
+	        <p><label for="first_name" class="text-sm text-gray-500 uppercase">First Name</label></p>
+					<p><input type="text" value="" name="customer[first_name]" id="first_name" class="form-input w-full" size="30" /></p>
+					<p><label for="last_name" class="text-sm text-gray-500 uppercase">Last Name</label></p>
+					<p><input type="text" value="" name="customer[last_name]" id="last_name" class="form-input w-full" size="30" /></p>
+					<p><label for="email" class="text-sm text-gray-500 uppercase">Email Address</label></p>
+					<p><input type="email" value="" name="customer[email]" id="email" class="form-input w-full" size="30" /></p>
+					<p><label for="password" class="text-sm text-gray-500 uppercase">Password</label></p>
+					<p><input type="password" value="" name="customer[password]" id="password" class="form-input w-full" size="30" /></p>
+					<p><input class="btn btn--green w-full" type="submit" value="Register Account" /></p>
+					
+					<h3>Already Have an Account?</h3>
+	        <p>
+						<a class="btn w-full text-center" href="{{ shop.url }}/account/login">Log in now</a>
+					</p>
+	      </div>
+	
+	    {% endform %}
+</div>

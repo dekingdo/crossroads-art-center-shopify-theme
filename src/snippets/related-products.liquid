@@ -1,0 +1,24 @@
+{% if collection and collection.products_count > 1 %}
+{% unless collection.handle == 'all' %}
+
+{% assign current_product = product %}
+
+  <section>
+    <h2 class="text-center">Similar Products</h2>
+    <div class="flex flex-wrap -mx-2">
+      {% assign current_product_found = false %}
+      {% for product in collection.products limit: 7 %}
+        {% if product.handle == current_product.handle %}
+          {% assign current_product_found = true %}
+        {% else %}
+          {% unless current_product_found == false and forloop.last %}
+            <div class="p-2 w-1/2 sm:w-1/3 lg:w-1/6">
+              {% include 'content-product' %}
+            </div>
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+{% endunless %}
+{% endif %}

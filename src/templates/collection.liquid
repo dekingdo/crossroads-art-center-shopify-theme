@@ -1,0 +1,49 @@
+{% include 'breadcrumbs' %}
+{% paginate collection.products by 36 %}
+
+{% if collection.image %}
+  <img class="w-full h-full max-h-675 object-cover" src="{{ collection.image | img_url: '1200x675', crop: 'center' }}">
+{% endif %}
+
+  {% if collection.description.size > 0 %}
+  <div class="py-8 mb-8 bg-gray-100">
+    <div class="container">
+      <h1>{{ collection.title }}</h1>
+      {{ collection.description }}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if collection.products_count == 0 %}
+    <div class="container my-8 text-center">
+      <p>{{ collection.title }} currently has no products for sale online.</p>
+      <p><a class="btn btn--green" href="/collections/all/">Browse All Art</a></p>
+    </div>
+  {% else %}
+
+  <div class="container-fluid my-8">
+    <div class="sm:flex -mx-4">
+  
+      <div class="px-4 sm:w-1/3 lg:w-64 flex-shrink-0">
+        {% include 'filter-menu' %}
+      </div>
+  
+      <div class="px-4 sm:w-2/3 lg:w-auto">
+        <div class="flex flex-wrap -mx-2">
+          {% for product in collection.products %}
+            <div class="w-1/2 sm:w-1/3 xl:w-64 p-2">
+            {% include 'content-product' %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>   
+  </div>
+  
+  {% endif %}
+
+  <footer class="flex justify-center py-8">
+    {% include 'pagination' %}
+  </footer>
+
+{% endpaginate %}

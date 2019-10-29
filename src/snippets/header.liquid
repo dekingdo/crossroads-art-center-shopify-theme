@@ -1,0 +1,63 @@
+<header role="banner">
+  <div class="flex justify-between p-4">
+    <div class="w-64">
+      <h1>
+        <a href="/" title="{{ shop.name }}">
+          <img
+          class="w-full h-auto"
+          src="{{ 'logo.svg' | asset_url }}"
+          alt="{{ shop.name }}"
+          />
+        </a>
+      </h1>
+    </div>
+    
+    <div class="hidden md:block">
+      <div class="text-right">
+        {% if customer %}
+        <a class="inline-block ml-2" href="/account"><i class="fal fa-user"></i> {{ customer.first_name }}</a>
+        {{ "Logout" | customer_logout_link | replace: '<a', '<a class="inline-block ml-2"' }}
+        {% else %}
+        {{ "Log in" | customer_login_link | replace: '<a', '<a class="inline-block ml-2"' }}
+        {% endif %}
+        <a class="inline-block ml-2" href="/cart">
+          <i class="fal fa-shopping-cart"></i> Cart
+          {% if cart.item_count > 0 %}
+          (<span class="number">{{ cart.item_count }}</span>)
+          {% endif %}
+        </a>
+      </div>
+      <div class="my-2 text-right" id="header-search">
+        <form action="/search" method="get" role="search">
+          <input type="hidden" name="type" value="product" />
+          <div class="flex">
+            <input
+            class="form-input rounded-r-none border-r-0"
+            name="q"
+            type="text"
+            placeholder="Search store..."
+            class="search-box hint text"
+            />
+            <button class="btn btn--green rounded-l-none"><i class="fal fa-search"></i> Search</button>
+          </div>
+        </form>
+      </div>
+    </div>   
+  </div>
+</header>
+
+<div class="md:hidden fixed top-0 right-0 p-1 bg-tint-50 z-50">
+  <button id="hamburger" class="hamburger hamburger--arrow-r" type="button" data-toggle="mobile-menu">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button> 
+</div>
+
+<div class="hidden md:block mt-2 bg-gray-100">
+  {% include 'navbar' %}
+</div>
+
+<div id="mobile-menu" class="off-canvas">
+  {% include 'mobile-menu' %}
+</div>

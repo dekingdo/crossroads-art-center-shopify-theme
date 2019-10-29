@@ -1,0 +1,43 @@
+{% if paginate.previous or paginate.next %}
+
+  <ul class="pagination">
+
+    {% if paginate.previous %}
+      <li class="pagination__item">
+        <a class="pagination__link" href="{{ paginate.previous.url }}">
+          Prev
+        </a>
+      </li>
+    {% endif %}
+
+    {% for part in paginate.parts %}
+
+      {% if part.is_link %}
+        <li class="pagination__item">
+          <a class="pagination__link" href="{{ part.url }}">
+            {{ part.title }}
+          </a>
+        </li>
+      {% elsif part.title == '&hellip;' %}
+        <li class="pagination__item">
+          <span class="pagination__elipsis">&hellip;</span>
+        </li>
+      {% else %}
+        <li class="pagination__item">
+          <span class="pagination__current">{{ part.title }}</span>
+        </li>
+      {% endif %}
+
+    {% endfor %}
+
+    {% if paginate.next %}
+      <li class="pagination__item">
+        <a class="pagination__link" href="{{ paginate.next.url }}">
+          Next
+        </a>
+      </li>
+    {% endif %}
+
+  </ul>
+
+{% endif %}
