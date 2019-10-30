@@ -143,7 +143,7 @@ module.exports = {
       port: 3000,
       logLevel: "silent",
       files: ["theme_ready"],
-      proxy: "https://www.buyrvaart.com/?preview_theme_id=49552425041",
+      proxy: "https://www.crossroadsartcenter.com/?preview_theme_id=78868742225",
       snippetOptions: {
         rule: {
             match: /<\/body>/i,

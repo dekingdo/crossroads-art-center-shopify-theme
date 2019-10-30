@@ -8,7 +8,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   content: [
     'src/**/*.liquid'
   ],
-  // whitelistPatterns: [/tns/],
+  whitelistPatterns: [/tns|is-active/],
 
   // Include any special characters you're using in this regular expression
   defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
