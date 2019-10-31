@@ -18,6 +18,29 @@
     ]
   },
   {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header-topbar-text",
+        "label": "Topbar Text",
+        "default": "<b>HOURS</b> 10am-6pm Monday - Saturday | Noon-4pm Sunday"
+      },
+      {
+        "type": "link_list",
+        "id": "desktop-nav",
+        "label": "Desktop Navigation",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "mobile-nav",
+        "label": "Mobile Navigation",
+        "default": "main-menu"
+      }
+    ]
+  },
+  {
     "name": "Footer",
     "settings": [
       {

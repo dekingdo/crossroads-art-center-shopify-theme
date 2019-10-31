@@ -16,7 +16,10 @@
  * Skin
  */
 .navbar {
-  @apply text-sm;
+  @apply text-xs;
+  @screen xl {
+    @apply text-sm;
+  }
 }
 .navbar__item {}
 .navbar__link {
