@@ -14,6 +14,24 @@
         "max-width": 32,
         "max-height": 32,
         "info": "(must be 32px x 32px)"
+      },
+      {
+        "type": "text",
+        "id": "business-address",
+        "label": "Business Address",
+        "default": "2016 Staples Mill Rd, Richmond, VA 23230"
+      },
+      {
+        "type": "text",
+        "id": "business-hours",
+        "label": "Business Hours",
+        "default": "10am-6pm Monday - Saturday | Noon-4pm Sunday"
+      },
+      {
+        "type": "text",
+        "id": "business-phone",
+        "label": "Business Phone",
+        "default": "(804) 278-8950"
       }
     ]
   },
