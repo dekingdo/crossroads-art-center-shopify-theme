@@ -77,16 +77,15 @@
             <link itemprop="availability" href="http://schema.org/OutOfStock" />
             {% endif %}
             <p class="text-lg">
-              {% if product.compare_at_price > product.price %}
-              <span><del>{{ product.compare_at_price_max | money }}</del></span>
-              <span class="text-green-500 font-bold" itemprop="price">Now {{ product.price | money }}</span>
+              {% if product.price_varies %}
+              <span itemprop="price">{{ product.price | money }} - {{ product.price_max | money }}</span>
               {% else %}
               <span itemprop="price">{{ product.price | money }}</span>
               {% endif %}
             </p>
           </div>
           
-          <div class="my-4 {% if product.has_only_default_variant %}hidden{% endif %}">
+          <div class="my-4">
             <select class="form-select text-sm" id="variant-listbox" name="id">
               {% for variant in product.variants %}
                 <option
@@ -107,17 +106,17 @@
             </p>
             <button class="btn btn--green" type="submit" name="add" id="add">Add to Cart</button>
             {% else %}
-            {% unless product.has_only_default_variant %}
-            <p class="text-sm italic p-1 bg-gray-100">
-              <i class="fal fa-exclamation-triangle"></i>
-              This variant is sold out please select another
-            </p>
-            {% else %}
-            <p class="text-sm italic p-1 bg-gray-100">
-              <i class="fal fa-exclamation-triangle"></i>
-              This product is currently not for sale online please contact us for more information.
-            </p>
-            {% endunless %}
+              {% unless product.has_only_default_variant %}
+              <p class="text-sm italic p-1 bg-gray-100">
+                <i class="fal fa-exclamation-triangle"></i>
+                This variant is sold out please select another
+              </p>
+              {% else %}
+              <p class="text-sm italic p-1 bg-gray-100">
+                <i class="fal fa-exclamation-triangle"></i>
+                This product is currently not for sale online please contact us for more information.
+              </p>
+              {% endunless %}
             {% endif %}
           </div>
           

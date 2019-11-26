@@ -17,7 +17,7 @@
   <a class="text-xs uppercase" href="/collections/{{ product.vendor | handleize }}">
     {{ product.vendor }}
   </a>
-  <div>{{ product.price | money_without_trailing_zeros }}</div>
+  <div>{{ product.price_max | money_without_trailing_zeros }}</div>
   {% if product.available == false %}
   <div class="absolute text-sm p-2 bg-orange-500 text-white top-0 left-0 uppercase">Sold</div>
   {% endif %}
