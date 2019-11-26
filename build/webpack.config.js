@@ -32,7 +32,7 @@ const paths = {
   appNodeModules: resolveApp("node_modules")
 };
 
-const DEV = process.env.NODE_ENV === "development";
+const DEV = ( process.env.NODE_ENV === 'production' ? false : true );
 
 module.exports = {
   stats: "minimal",
@@ -119,10 +119,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "assets/[name].css"
     }),
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: "development", // use 'development' unless process.env.NODE_ENV is defined
-      DEBUG: false
-    }),
+    // new webpack.EnvironmentPlugin({
+    //   NODE_ENV: "development", // use 'development' unless process.env.NODE_ENV is defined
+    //   DEBUG: false
+    // }),
     DEV && new FriendlyErrorsPlugin({
       clearConsole: false
     }),
@@ -134,7 +134,7 @@ module.exports = {
       { from: 'src/sections', to: paths.appBuild + '/sections' },
       { from: 'src/snippets', to: paths.appBuild + '/snippets' },
     ]),
-    !DEV &&new CleanWebpackPlugin({
+    !DEV && new CleanWebpackPlugin({
       verbose: true
     }),
     DEV && new BrowserSyncPlugin({

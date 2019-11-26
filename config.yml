@@ -5,7 +5,6 @@ development:
   directory: dist
   ignores:
   - themekit_ignores
-
 production:
   password: 23de2e01676a3539aa7339db5e2134c3
   theme_id: "49552425041"

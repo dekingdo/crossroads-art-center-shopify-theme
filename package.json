@@ -11,9 +11,9 @@
     }
   ],
   "scripts": {
-    "start": "cross-env NODE_ENV=development node ./build/start.js --watch",
-    "build": "cross-env NODE_ENV=production node ./build/build.js",
-    "deploy": "cross-env NODE_ENV=production node ./build/deploy.js",
+    "start": "cross-env node ./build/start.js",
+    "build": "cross-env node ./build/build.js",
+    "deploy": "cross-env node ./build/deploy.js",
     "startcli": "webpack-cli --config build/webpack.config.js --mode=development --watch --display=normal",
     "buildcli": "webpack-cli --config build/webpack.config.js --mode=production --display=normal"
   },

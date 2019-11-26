@@ -18,5 +18,6 @@ clientCompiler.watch(
 const themeKit = require('@shopify/themekit');
  
 themeKit.command('watch', {
-  'notify': 'theme_ready'
+  env: 'development',
+  notify: 'theme_ready'
 });
